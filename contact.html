@@ -100,8 +100,10 @@
         date: new Date()
       });
 
-      alert("✅ Message sent successfully!");
-
+      // 🔥 REDIRECT
+setTimeout(() => {
+  window.location.href = "thankyou.html";
+}, 1000);
       form.reset();
 
     } catch (error) {
