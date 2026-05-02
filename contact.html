@@ -99,6 +99,12 @@
         message: document.getElementById("message").value,
         date: new Date()
       });
+      // 🔥 SAVE LEAD (EMAIL CAPTURE)
+    await addDoc(collection(db, "leads"), {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      date: new Date()
+    });
 
       // 🔥 REDIRECT
 setTimeout(() => {
