@@ -88,3 +88,9 @@ footer a {
 footer a:hover {
   color: white;
 }
+.hero-box {
+  background: #111;
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+}
