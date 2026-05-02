@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7-Day Flat Belly Glow Up Reset</title>
+  <meta name="description" content="Transform your body in 7 days with a simple natural reset plan.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #e63946;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: gray;
+    }
+
+    .price {
+      font-size: 26px;
+      color: #e63946;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔥 7-Day Flat Belly Glow Up Reset</h1>
+  <p>Transform your body & confidence in just 7 days</p>
+</header>
+
+<div class="container">
+
+  <div class="section">
+    <h2>✨ What You Will Get</h2>
+    <ul>
+      <li>7-Day step-by-step fat loss plan</li>
+      <li>Simple daily meals guide</li>
+      <li>Flat belly detox routine</li>
+      <li>Morning & evening habits</li>
+      <li>Bonus mindset reset guide</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🔥 Why This Works</h2>
+    <p>
+      This program is designed to help you reduce bloating, improve digestion,
+      and activate natural fat burning in just 7 days.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>💬 Results You Can Expect</h2>
+    <ul>
+      <li>Less bloating in 48 hours</li>
+      <li>Visible waist reduction</li>
+      <li>More energy daily</li>
+      <li>Better confidence</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>💰 Special Offer</h2>
+    <p class="price">$9.99 Only Today</p>
+
+    <a class="btn" href="https://your-paddle-payment-link.com">
+      👉 Get Instant Access
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>⭐ Testimonials</h2>
+    <p>“I lost belly fat in just a week!” – Sarah</p>
+    <p>“Simple and very effective plan” – John</p>
+  </div>
+
+  <div class="section">
+    <h2>⚠️ Disclaimer</h2>
+    <p>
+      Results may vary depending on lifestyle and consistency.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="terms.html">Terms</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="refund.html">Refund</a>
+  </p>
+  <p>© 2026 Digital Product Store</p>
+</footer>
+
+</body>
+</html>
