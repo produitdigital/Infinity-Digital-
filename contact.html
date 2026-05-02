@@ -26,14 +26,8 @@
 
   <div class="debug-box">
     <h2>📧 Email Support</h2>
-    <p>
-      You can reach us anytime at:
-    </p>
     <p><strong>rasolojean44@gmail.com</strong></p>
-
-    <p>
-      We usually respond within <strong>24–48 hours</strong>.
-    </p>
+    <p>We respond within <strong>24–48 hours</strong>.</p>
   </div>
 
   <div class="debug-box">
@@ -42,33 +36,80 @@
       <li>✔ Product access issues</li>
       <li>✔ Payment confirmation help</li>
       <li>✔ Technical support</li>
-      <li>✔ General questions about the program</li>
+      <li>✔ General questions</li>
     </ul>
   </div>
 
   <div class="debug-box">
     <h2>🚀 Quick Message Form</h2>
 
-    <form>
-      <label>Your Name</label><br>
-      <input type="text" placeholder="Enter your name" style="width:100%;padding:10px;margin:8px 0;"><br>
+    <!-- 🔥 IMPORTANT FORM ID -->
+    <form id="contactForm">
 
-      <label>Your Email</label><br>
-      <input type="email" placeholder="Enter your email" style="width:100%;padding:10px;margin:8px 0;"><br>
+      <label>Your Name</label>
+      <input id="name" type="text" placeholder="Enter your name" required
+        style="width:100%;padding:10px;margin:8px 0;">
 
-      <label>Your Message</label><br>
-      <textarea placeholder="Write your message..." rows="5" style="width:100%;padding:10px;margin:8px 0;"></textarea><br>
+      <label>Your Email</label>
+      <input id="email" type="email" placeholder="Enter your email" required
+        style="width:100%;padding:10px;margin:8px 0;">
+
+      <label>Your Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message..." required
+        style="width:100%;padding:10px;margin:8px 0;"></textarea>
 
       <button class="btn" type="submit">Send Message</button>
+
     </form>
 
     <p style="font-size:12px; color:gray; margin-top:10px;">
-      * This form is for display only unless connected to Firebase or email service.
+      * Messages will be saved to Firebase Firestore.
     </p>
 
   </div>
 
 </div>
+
+<!-- 🔥 FIREBASE SCRIPT (YOUR API INCLUDED) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCj3UXVG4Sa499iiY9MrfO3llXYZuipJos",
+    authDomain: "digital-product-store-690ea.firebaseapp.com",
+    projectId: "digital-product-store-690ea",
+    storageBucket: "digital-product-store-690ea.firebasestorage.app",
+    messagingSenderId: "782111280512",
+    appId: "1:782111280512:web:c8a9b932225895bf004565"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, "messages"), {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        date: new Date()
+      });
+
+      alert("✅ Message sent successfully!");
+
+      form.reset();
+
+    } catch (error) {
+      console.error(error);
+      alert("❌ Error sending message. Try again.");
+    }
+  });
+</script>
 
 </body>
 </html>
