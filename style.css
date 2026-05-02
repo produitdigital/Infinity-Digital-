@@ -89,8 +89,25 @@ footer a:hover {
   color: white;
 }
 .hero-box {
-  background: #111;
+  background: linear-gradient(135deg, #111, #333);
   color: white;
-  padding: 40px;
+  padding: 50px;
+  border-radius: 16px;
+  text-align: center;
+  margin: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.debug-box {
+  background: #f9f9f9;
   border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 4px solid #333;
 }
