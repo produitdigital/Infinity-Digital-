@@ -1,13 +1,92 @@
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<input id="email" placeholder="Email"><br>
-<input id="password" type="password" placeholder="Password"><br>
+<style>
+body{
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:white;
+}
 
-<button onclick="login()">Login</button>
+.box{
+  background:#111827;
+  padding:30px;
+  border-radius:15px;
+  width:320px;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+  text-align:center;
+}
+
+h2{
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:8px;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#22c55e;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#16a34a;
+}
+
+#msg{
+  margin-top:10px;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🔐 Login</h2>
+
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <p id="msg"></p>
+</div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCj3UXVG4Sa499iiY9MrfO3llXYZuipJos",
+  authDomain: "digital-product-store-690ea.firebaseapp.com",
+  projectId: "digital-product-store-690ea",
+  storageBucket: "digital-product-store-690ea.firebasestorage.app",
+  messagingSenderId: "782111280512",
+  appId: "1:782111280512:web:c8a9b932225895bf004565"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -16,13 +95,23 @@ window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-  const user = userCredential.user;
+    localStorage.setItem("uid", user.uid);
 
-  // save uid
-  localStorage.setItem("uid", user.uid);
+    document.getElementById("msg").innerText = "Login success ✅";
 
-  window.location.href = "download.html";
+    setTimeout(() => {
+      window.location.href = "download.html";
+    }, 1000);
+
+  } catch (error) {
+    document.getElementById("msg").innerText = "Login failed ❌ " + error.message;
+  }
 };
-    </script>
+</script>
+
+</body>
+</html>
