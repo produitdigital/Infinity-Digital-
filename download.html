@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Your Product</h2>
+
+  <!-- BUTTON HIDDEN -->
+  <a id="btn" href="#" target="_blank" class="btn" style="display:none;">
+    Download PDF
+  </a>
+</div>
+
+<!-- 🔥 FIREBASE SCRIPT -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "digital-product-store-690ea.firebaseapp.com",
+  projectId: "digital-product-store-690ea",
+  storageBucket: "digital-product-store-690ea.firebasestorage.app",
+  messagingSenderId: "782111280512",
+  appId: "1:782111280512:web:c8a9b932225895bf004565"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// 🔑 GET UID
+const uid = localStorage.getItem("uid");
+
+// 🔎 CHECK USER
+const docRef = doc(db, "users", uid);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  const data = docSnap.data();
+
+  if (data.access === true) {
+
+    // 🔓 SHOW BUTTON + ADD PDF LINK
+    const btn = document.getElementById("btn");
+    btn.style.display = "inline-block";
+
+    btn.href = "YOUR_PDF_LINK"; // 🔥 APETRAKA ETO NY LINK PDF
+
+  } else {
+    alert("No access");
+    window.location.href = "login.html";
+  }
+
+} else {
+  alert("User not found");
+  window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
